@@ -30,19 +30,45 @@ def bin2int(binnum):#the bin must be inverted for this to work
 
 ##now lets learn more about it.
 
+def int2bin(number):# https://en.m.wikipedia.org/wiki/Binary_number#Decimal_to_Binary
+    q = number
+    r = 0
+    binnum = []
+    n = 0
+    while q > 0:
+        r = q%2
+        q = q//2
+        binnum.append(r)
+    return binnum
+print(int2bin(4))
+
+
+
+
+
+
+##dormant old code
+'''
 def int2bin(number):
     number = int(number)
     binnum = [0,0,0,0,0,0,0,0,0,0]
     guessnum = 0
     n = 0
-    while guessnum != (number-1):
-        if binnum[n] == 0:
-            binnum[n] = 1
+    while guessnum < number:
         if binnum[n] == 1:
             binnum[n] = 0
             binnum[n+1] = 1
+        if binnum[n] == 0:
+            binnum[n] = 1
         n += 1
         guessnum = bin2int(binnum)
+    while guessnum > number:
+        if binnum[n] == 1:
+            binnum[n] = 1
+            binnum[n+1] = 0
+        if binnum[n] == 0:
+            binnum[n] = 0
+        n -= 1
+        guessnum = bin2int(binnum)
     return binnum
-
-print(int2bin(1))
+'''
