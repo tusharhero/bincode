@@ -130,4 +130,4 @@ dmypy.json
 
 # my stuff
 test.py
-./random/
+random/
