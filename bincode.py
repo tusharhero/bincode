@@ -40,13 +40,19 @@ def int2bin(number):# https://en.m.wikipedia.org/wiki/Binary_number#Decimal_to_B
         q = q//2
         binnum.append(r)
     return binnum
-print(int2bin(4))
 
+def mkbincodeimg(number): #makes the bincode image :D
+    n = 0
+    binnum = int2bin(number) #converts the number into binary first
+    bincode = img0.copy() #
+    while n < len(binnum):
+        if binnum[n] == 1:
+            locationx = (100*n)
+            bincode.paste(img1,(locationx,0))
+        n += 1
+    return bincode
 
-
-
-
-
+#mkbincodeimg(69).show()
 ##dormant old code
 '''
 def int2bin(number):
