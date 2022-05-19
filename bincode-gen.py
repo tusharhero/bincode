@@ -17,6 +17,7 @@ img1 = Image.new("1", (100,100))
 def bin2int(binnum):#the bin must be inverted for this to work
     number = 0
     n = 0
+
     #all of the values of binary places, this is from left to right instead of right to left
     binnumvalues = [1,2,4,8,16,32,64,128,256,512,1024]
 
@@ -24,9 +25,24 @@ def bin2int(binnum):#the bin must be inverted for this to work
     while n < len(binnum):
         number += binnum[n]*binnumvalues[n]#number = binnum(1) * 2^place ...
         n += 1
+    
     return number
-'''
+
+##now lets learn more about it.
+
 def int2bin(number):
     number = int(number)
     binnum = [0,0,0,0,0,0,0,0,0,0]
-'''
+    guessnum = 0
+    n = 0
+    while guessnum != (number-1):
+        if binnum[n] == 0:
+            binnum[n] = 1
+        if binnum[n] == 1:
+            binnum[n] = 0
+            binnum[n+1] = 1
+        n += 1
+        guessnum = bin2int(binnum)
+    return binnum
+
+print(int2bin(1))
