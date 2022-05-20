@@ -59,7 +59,7 @@ def rdbincodeimg(bincode):
     binnum = []
     color = 0
     while n < 10:
-        color = bincodedata[(50*(2*n - 3)),0]#100*(n-1)-50
+        color = bincodedata[(100*(n+1)-50),0]#100*(n-1)-50
         if color == 1:
             binnum.append(0)
         if color == 0:
