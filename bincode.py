@@ -52,7 +52,7 @@ def mkbincodeimg(number): #makes the bincode image :D
         n += 1
     return bincode
 
-#mkbincodeimg(69).show()
+mkbincodeimg(69).show()
 ##dormant old code
 '''
 def int2bin(number):
