@@ -52,9 +52,28 @@ def mkbincodeimg(number): #makes the bincode image :D
         n += 1
     return bincode
 
+def rdbincodeimg(bincode):
+    #bincode = Image.open(bincode)
+    bincodedata = bincode.load()
+    n = 0
+    binnum = []
+    color = 0
+    while n < 10:
+        color = bincodedata[(50*(2*n - 3)),0]#100*(n-1)-50
+        if color == 1:
+            binnum.append(0)
+        if color == 0:
+            binnum.append(1)
+        n += 1
+    number = bin2int(binnum)
+    return binnum
+print(int2bin(69))
+print(rdbincodeimg(mkbincodeimg(69)))
 #mkbincodeimg(69).show()
 ##dormant old code
+
 '''
+
 def int2bin(number):
     number = int(number)
     binnum = [0,0,0,0,0,0,0,0,0,0]
