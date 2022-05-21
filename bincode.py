@@ -67,8 +67,8 @@ def rdbincodeimg(bincode):
         n += 1
     number = bin2int(binnum)
     return binnum
-print(int2bin(69))
-print(rdbincodeimg(mkbincodeimg(69)))
+#print(int2bin(69))
+#print(rdbincodeimg(mkbincodeimg(69)))
 #mkbincodeimg(69).show()
 ##dormant old code
 
