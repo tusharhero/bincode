@@ -60,13 +60,19 @@ def rdbincodeimg(bincode):
     color = 0
     while n < 10:
         color = bincodedata[(100*(n+1)-50),0]#100*(n-1)-50
-        if color == 1:
+        #print(color)
+        if color > 0:
             binnum.append(0)
         if color == 0:
             binnum.append(1)
         n += 1
     number = bin2int(binnum)
     return binnum
+
+def opbincode(dir):
+    bincode = Image.open(dir)
+    bincode = bincode.convert("1")
+    return bincode
 #print(int2bin(69))
 #print(rdbincodeimg(mkbincodeimg(69)))
 #mkbincodeimg(69).show()
