@@ -52,27 +52,29 @@ def mkbincodeimg(number): #makes the bincode image :D
         n += 1
     return bincode
 
-def rdbincodeimg(bincode):
+def rdbincodeimg(bincode):#reads the bincode image 
     #bincode = Image.open(bincode)
-    bincodedata = bincode.load()
+    bincodedata = bincode.load()# loads the bincode
     n = 0
     binnum = []
     color = 0
-    while n < 10:
-        color = bincodedata[(100*(n+1)-50),0]#100*(n-1)-50
+    while n < 10:#a bincode (for now) contains 10 bits
+        color = bincodedata[(100*(n+1)-50),0]#100*(n+1)-50  #This gets the color values of each bit.
         #print(color)
-        if color > 0:
+        if color > 0:#if the color is not 0 then it will append a 0 into the binnum
             binnum.append(0)
-        if color == 0:
+        if color == 0:#if it is 0 then it will append a 1 into the bincode
             binnum.append(1)
         n += 1
-    number = bin2int(binnum)
+    #number = bin2int(binnum) #We have to make design decision. So I have commented this for now.
     return binnum
 
-def opbincode(dir):
+def opbincode(dir):#a function for opening bincodes and converting them to 1 bit format
     bincode = Image.open(dir)
     bincode = bincode.convert("1")
     return bincode
+
+
 #print(int2bin(69))
 #print(rdbincodeimg(mkbincodeimg(69)))
 #mkbincodeimg(69).show()
