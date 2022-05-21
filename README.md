@@ -2,5 +2,5 @@
 attempt to make bar codes.
 
 
-### Bincode for number 69
-![Bincode for 69 ](https://github.com/tusharhero/bincode/raw/main/69.png)
+### All bincodes from 0 to 64
+![](https://github.com/tusharhero/bincode/raw/main/0to64/0to64.png)
