@@ -79,35 +79,3 @@ def opbincode(dir):#a function for opening bincodes and converting them to 1 bit
     bincode = Image.open(dir)
     bincode = bincode.convert("1")
     return bincode
-
-
-#print(int2bin(69))
-#print(rdbincodeimg(mkbincodeimg(69)))
-#mkbincodeimg(69).show()
-##dormant old code
-
-'''
-
-def int2bin(number):
-    number = int(number)
-    binnum = [0,0,0,0,0,0,0,0,0,0]
-    guessnum = 0
-    n = 0
-    while guessnum < number:
-        if binnum[n] == 1:
-            binnum[n] = 0
-            binnum[n+1] = 1
-        if binnum[n] == 0:
-            binnum[n] = 1
-        n += 1
-        guessnum = bin2int(binnum)
-    while guessnum > number:
-        if binnum[n] == 1:
-            binnum[n] = 1
-            binnum[n+1] = 0
-        if binnum[n] == 0:
-            binnum[n] = 0
-        n -= 1
-        guessnum = bin2int(binnum)
-    return binnum
-'''
