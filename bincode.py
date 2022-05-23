@@ -12,8 +12,8 @@ img1 = Image.new("1", (100,100))
 
 
 ##coordinates for every block
-locationy = [0]*8 + [100]*8 + [200]*8 + [300]*8 + [400]*8 + [500]*8 + [600]*8 + [700]*8
-locationx = [0, 100, 200, 300, 400, 500, 600, 700]*8
+locationy = [0]*8 + [100]*8 + [200]*8 + [300]*8 + [400]*8 + [500]*8 + [600]*8 + [700]*8#How did i get these numbers? every 8 bits will have the same coordinate. 🤔
+locationx = [0, 100, 200, 300, 400, 500, 600, 700]*8 #And every 8th bit will have the same x coordinate.
 
 ##we need a function to convert a given number into binary
 #I dont think this is a good idea, but i am going to try it anyway
