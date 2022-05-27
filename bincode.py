@@ -80,3 +80,8 @@ def opbincode(dir):#a function for opening bincodes and converting them to 1 bit
     bincode = Image.open(dir)
     bincode = bincode.convert("1")
     return bincode
+
+def txt2bin(txt): #a function for converting text into binnum
+    txt = str(txt)
+    txtindex = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'," "]
+    return binnum
