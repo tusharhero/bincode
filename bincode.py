@@ -8,15 +8,23 @@ from PIL import Image
 img0 = Image.new("1", (800,800),1)
 
 #This image is a small black box ⬛ and it is the block we are going to use denote 1
-img1 = Image.new("1", (100,100))
+img1 = Image.new("1", (50,50))
 
 
 ##coordinates for every block
-locationy = [0]*8 + [100]*8 + [200]*8 + [300]*8 + [400]*8 + [500]*8 + [600]*8 + [700]*8#How did i get these numbers? every 8 bits will have the same coordinate. 🤔
-locationx = [0, 100, 200, 300, 400, 500, 600, 700]*8 #And every 8th bit will have the same x coordinate.
+locationy = [50*0]*16 + [50*1]*16 + [50*2]*16 + [50*3]*16 + [50*4]*16 + [50*5]*16 + [50*6]*16 + [50*7]*16 + [50*8]*16 + [50*9]*16 + [50*10]*16 + [50*11]*16 + [50*12]*16 + [50*13]*16 + [50*14]*16 + [50*15]*16#How did i get these numbers? every 16 bits will have the same coordinate. 🤔
+locationx = [50*0, 50*1, 50*2, 50*3, 50*4, 50*5, 50*6, 50*7, 50*8, 50*9, 50*10, 50*11, 50*12, 50*13, 50*14, 50*15]*16 #And every 16th bit will have the same x coordinate.
 
 ##we need a function to convert a given number into binary
 #I dont think this is a good idea, but i am going to try it anyway
+
+
+def createbinnumvals(bits):
+    binnumvalues = []
+    n = 0
+    while n > bits:
+        binnumvalues.append(2**(n))
+    return binnumvalues
 
 ##fist we need bin2int
 def bin2int(binnum):#the bin must be inverted for this to work
@@ -24,8 +32,9 @@ def bin2int(binnum):#the bin must be inverted for this to work
     n = 0
 
     #all of the values of binary places, this is from left to right instead of right to left
-    binnumvalues = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728, 268435456, 536870912, 1073741824, 2147483648, 4294967296, 8589934592, 17179869184, 34359738368, 68719476736, 137438953472, 274877906944, 549755813888, 1099511627776, 2199023255552, 4398046511104, 8796093022208, 17592186044416, 35184372088832, 70368744177664, 140737488355328, 281474976710656, 562949953421312, 1125899906842624, 2251799813685248, 4503599627370496, 9007199254740992, 18014398509481984, 36028797018963968, 72057594037927936, 144115188075855872, 288230376151711744, 576460752303423488, 1152921504606846976, 2305843009213693952, 4611686018427387904, 9223372036854775808, 18446744073709551616]
-
+    #binnumvalues = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728, 268435456, 536870912, 1073741824, 2147483648, 4294967296, 8589934592, 17179869184, 34359738368, 68719476736, 137438953472, 274877906944, 549755813888, 1099511627776, 2199023255552, 4398046511104, 8796093022208, 17592186044416, 35184372088832, 70368744177664, 140737488355328, 281474976710656, 562949953421312, 1125899906842624, 2251799813685248, 4503599627370496, 9007199254740992, 18014398509481984, 36028797018963968, 72057594037927936, 144115188075855872, 288230376151711744, 576460752303423488, 1152921504606846976, 2305843009213693952, 4611686018427387904, 9223372036854775808, 18446744073709551616]
+    binnumvalues = createbinnumvals(256)
+    
     #loops until the number fully complete
     while n < len(binnum):
         number += binnum[n]*binnumvalues[n]#number = binnum(1) * 2^place ...
@@ -67,7 +76,7 @@ def rdbincodeimg(bincode):#reads the bincode image
         #color = bincodedata[(100*(n+1)-50),0]#100*(n+1)-50  #This gets the color values of each bit.
         color = bincodedata[locationx[n],locationy[n]]#uses the x and y locations we generated to decode the bincode
         #color = bincodedata[(100*(n+1)-50),locationx[n]]
-        print(color)
+        #print(color)
         if color > 0:#if the color is not 0 then it will append a 0 into the binnum
             binnum.append(0)
         if color == 0:#if it is 0 then it will append a 1 into the bincode
@@ -80,8 +89,10 @@ def opbincode(dir):#a function for opening bincodes and converting them to 1 bit
     bincode = Image.open(dir)
     bincode = bincode.convert("1")
     return bincode
-
+'''
 def txt2bin(txt): #a function for converting text into binnum
     txt = str(txt)
     txtindex = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'," "]
+    
     return binnum
+'''
