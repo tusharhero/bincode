@@ -109,6 +109,6 @@ def txt2bin(txt): #a function for converting text into binnum(Experimental)
     while n < len(txt):
         diccode = int(c2l(txt[n], txtindex)/7)
         codeindic = c2l(txt[n], txtindex_divided[diccode])
-        binnum.append(int2bin(diccode)+ int2bin(codeindic))
+        binnum += (int2bin(diccode)+ int2bin(codeindic))
         n += 1
     return binnum
