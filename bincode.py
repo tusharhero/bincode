@@ -22,8 +22,8 @@ locationx = [50*0, 50*1, 50*2, 50*3, 50*4, 50*5, 50*6, 50*7, 50*8, 50*9, 50*10, 
 def createbinnumvals(bits):
     binnumvalues = []
     n = 0
-    while n > bits:
-        binnumvalues.append(2**(n))
+    while n < bits:
+        binnumvalues.append((2**(n)))
     return binnumvalues
 
 ##fist we need bin2int
@@ -107,10 +107,12 @@ def bin_length_correction(binnum,l):
         n += 1
     return corrbin
 
+
+txtindex = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'," ","1","2","3","4","5","6","7","8","9","0","https://","/",".com" ]
+txtindex_divided = [['a', 'b', 'c', 'd', 'e', 'f', 'g'], ['h', 'i', 'j', 'k', 'l', 'm', 'n'], ['o', 'p', 'q', 'r', 's', 't', 'u'], ['v', 'w', 'x', 'y', 'z', ' ', '1'], ['2', '3', '4', '5', '6', '7', '8'], ['9', '0', 'https://', '/', '.com']]
+
 def txt2bin(txt): #a function for converting text into binnum(Experimental)
     txt = str(txt)
-    txtindex = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'," ","1","2","3","4","5","6","7","8","9","0","https://","/",".com" ]
-    txtindex_divided = [['a', 'b', 'c', 'd', 'e', 'f', 'g'], ['h', 'i', 'j', 'k', 'l', 'm', 'n'], ['o', 'p', 'q', 'r', 's', 't', 'u'], ['v', 'w', 'x', 'y', 'z', ' ', '1'], ['2', '3', '4', '5', '6', '7', '8'], ['9', '0', 'https://', '/', '.com']]
     n = 0
     binnum = []
     while n < len(txt):
@@ -119,3 +121,19 @@ def txt2bin(txt): #a function for converting text into binnum(Experimental)
         binnum += (bin_length_correction(int2bin(diccode),3)+ bin_length_correction(int2bin(codeindic),3))
         n += 1
     return binnum
+
+def bin2txt(binnum): #a function for converting binnum(Experimental) into text
+    txt = ""
+    binnum_individual_chars = []
+    n = 0
+    while n < len(binnum):
+        binnum_individual_chars.append(binnum[n:n+6])
+        n += 6
+    #print(binnum_individual_chars)
+    n = 0
+    while n < len(binnum_individual_chars):
+        diccode = bin2int(binnum_individual_chars[n][0:3])
+        print(diccode)
+        n += 1
+    
+    return txt
