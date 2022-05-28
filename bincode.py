@@ -99,6 +99,13 @@ def c2l(s,dic):#this function will figure out the placement in dictionary #stole
             l = l + 1
     return 0 #if not found at all returns this
 
+def bin_length_correction(binnum,l):
+    corrbin = [0]*l
+    n = 0
+    while n < len(binnum):
+        corrbin[n] = binnum[n]
+        n += 1
+    return corrbin
 
 def txt2bin(txt): #a function for converting text into binnum(Experimental)
     txt = str(txt)
@@ -109,6 +116,6 @@ def txt2bin(txt): #a function for converting text into binnum(Experimental)
     while n < len(txt):
         diccode = int(c2l(txt[n], txtindex)/7)
         codeindic = c2l(txt[n], txtindex_divided[diccode])
-        binnum += (int2bin(diccode)+ int2bin(codeindic))
+        binnum += (bin_length_correction(int2bin(diccode),3)+ bin_length_correction(int2bin(codeindic),3))
         n += 1
     return binnum
