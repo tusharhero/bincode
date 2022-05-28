@@ -55,9 +55,9 @@ def int2bin(number):# https://en.m.wikipedia.org/wiki/Binary_number#Decimal_to_B
         binnum.append(r)
     return binnum
 
-def mkbincodeimg(number): #makes the bincode image :D
+def mkbincodeimg(binnum): #makes the bincode image :D
     n = 0
-    binnum = int2bin(number) #converts the number into binary first
+    #binnum = int2bin(number) #converts the number into binary first
     bincode = img0.copy() # makes a copy of the image
     while n < len(binnum):#until the entire number is finished
         if binnum[n] == 1:#If the number is 1
