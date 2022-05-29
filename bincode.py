@@ -75,11 +75,11 @@ def rdbincodeimg(bincode):#reads the bincode image
     n = 0
     binnum = []
     color = 0
-    while n < 64:#a bincode (for now) contains 8 bits
+    while n < 256:#a bincode (for now) contains 256 bits
         #color = bincodedata[(100*(n+1)-50),0]#100*(n+1)-50  #This gets the color values of each bit.
         color = bincodedata[locationx[n],locationy[n]]#uses the x and y locations we generated to decode the bincode
         #color = bincodedata[(100*(n+1)-50),locationx[n]]
-        #print(color)
+        print(n , color)
         if color > 0:#if the color is not 0 then it will append a 0 into the binnum
             binnum.append(0)
         if color == 0:#if it is 0 then it will append a 1 into the bincode
