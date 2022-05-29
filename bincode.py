@@ -24,6 +24,7 @@ def createbinnumvals(bits):
     n = 0
     while n < bits:
         binnumvalues.append((2**(n)))
+        #print(binnumvalues)
         n += 1 
     return binnumvalues
 
