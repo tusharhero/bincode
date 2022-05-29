@@ -136,7 +136,7 @@ def bin2txt(binnum): #a function for converting binnum(Experimental) into text
     while n < len(binnum_individual_chars):
         diccode = bin2int(binnum_individual_chars[n][0:3])
         codeindic = bin2int(binnum_individual_chars[n][3:])
+        txt += txtindex_divided[diccode][codeindic]
         n += 1
-        print(diccode,codeindic)
-    
+        #print(txt)
     return txt
