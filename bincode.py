@@ -199,7 +199,7 @@ def bin2txt(binnum):
     for n in range(0, len(binnum), 6):
         binnum_individual_chars.append(binnum[n : n + 6])
 
-    for n in range(binnum_individual_chars):
+    for n in range(len(binnum_individual_chars)):
         diccode = bin2int(binnum_individual_chars[n][0:3])
         codeindic = bin2int(binnum_individual_chars[n][3:])
         txt += txtindex_divided[diccode][codeindic]
