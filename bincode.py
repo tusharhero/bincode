@@ -111,8 +111,8 @@ def bin_length_correction(binnum,l):
     return corrbin
 
 
-txtindex = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'," ","1","2","3","4","5","6","7","8","9","0","https://","/",".com" ]
-txtindex_divided = [['a', 'b', 'c', 'd', 'e', 'f', 'g'], ['h', 'i', 'j', 'k', 'l', 'm', 'n'], ['o', 'p', 'q', 'r', 's', 't', 'u'], ['v', 'w', 'x', 'y', 'z', ' ', '1'], ['2', '3', '4', '5', '6', '7', '8'], ['9', '0', 'https://', '/', '.com']]
+txtindex = [' ','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',"a","1","2","3","4","5","6","7","8","9","0","https://","/",".com" ]
+txtindex_divided = [[' ', 'b', 'c', 'd', 'e', 'f', 'g'], ['h', 'i', 'j', 'k', 'l', 'm', 'n'], ['o', 'p', 'q', 'r', 's', 't', 'u'], ['v', 'w', 'x', 'y', 'z', 'a', '1'], ['2', '3', '4', '5', '6', '7', '8'], ['9', '0', 'https://', '/', '.com']]
 
 def txt2bin(txt): #a function for converting text into binnum(Experimental)
     txt = str(txt)
@@ -140,4 +140,5 @@ def bin2txt(binnum): #a function for converting binnum(Experimental) into text
         txt += txtindex_divided[diccode][codeindic]
         n += 1
         #print(txt)
+    txt = txt.strip()
     return txt
