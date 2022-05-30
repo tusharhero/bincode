@@ -100,7 +100,7 @@ def mkbincodeimg(binnum):
 
     for index, item in enumerate(binnum):
         if item == 1:
-            bincode.paste(img1, (locationx[n], locationy[n]))
+            bincode.paste(img1, (locationx[index], locationy[index]))
 
     return bincode
 
@@ -153,6 +153,7 @@ def bin_length_correction(binnum, l):
 
     for index, item in enumerate(binnum):
         corrbin[index] = item
+    return corrbin
 
 
 alpha_numerical = f"{string.ascii_lowercase + string.digits}".replace("a", " ")
