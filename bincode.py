@@ -158,9 +158,9 @@ def bin_length_correction(binnum, l):
 alpha_numerical = f"{string.ascii_lowercase + string.digits}".replace("a", " ")
 txtindex = [
     *alpha_numerical,
-    "https://",
+    ":",
     "/",
-    ".com",
+    ".",
 ]
 txtindex_divided = [
     [" ", "b", "c", "d", "e", "f", "g"],
@@ -168,7 +168,7 @@ txtindex_divided = [
     ["o", "p", "q", "r", "s", "t", "u"],
     ["v", "w", "x", "y", "z", "a", "1"],
     ["2", "3", "4", "5", "6", "7", "8"],
-    ["9", "0", "https://", "/", ".com"],
+    ["9", "0", ":", "/", "."          ],
 ]
 
 
