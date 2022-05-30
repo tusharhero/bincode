@@ -206,3 +206,16 @@ def bin2txt(binnum):
 
     txt = txt.strip()
     return txt
+
+def txt2bincode(txt):
+    """
+    Directly converts txt to bincodes for convenience.
+    """
+    return mkbincodeimg(txt2bin(txt))
+
+
+def bincode2txt(bincode):
+    """
+    Directly converts bincode to txt for convenience.
+    """
+    return bin2txt(rdbincodeimg(bincode))
