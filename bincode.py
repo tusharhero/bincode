@@ -126,12 +126,19 @@ def rdbincodeimg(bincode):  # reads the bincode image
     # number = bin2int(binnum) #We have to make design decision. So I have commented this for now.
     return binnum
 
+def correctbincode(bincode):
+    """
+    corects the image by resizing it and converting it to 1 bit format
+    """
+    bincode = bincode.resize((800,800))
+    bincode = bincode.convert("1")
+
 
 def opbincode(
     dir,
-):  # a function for opening bincodes and converting them to 1 bit format
+):  # a function for opening bincodes 
     bincode = Image.open(dir)
-    bincode = bincode.convert("1")
+    bincode = bincode(correctbincode(bincode))
     return bincode
 
 
@@ -164,7 +171,7 @@ txtindex = [
     "/",
     ".",
 ]
-print(txtindex)
+# print(txtindex)
 txtindex_divided = [
     [" ", "b", "c", "d", "e", "f", "g"],
     ["h", "i", "j", "k", "l", "m", "n"],
