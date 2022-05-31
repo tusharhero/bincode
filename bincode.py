@@ -130,7 +130,7 @@ def correctbincode(bincode):
     """
     corects the image by resizing it and converting it to 1 bit format
     """
-    bincode = bincode.resize((800,800))
+    bincode = bincode.thumbnail((800,800))
     bincode = bincode.convert("1")
 
 
