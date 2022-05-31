@@ -159,10 +159,12 @@ def bin_length_correction(binnum, l):
 alpha_numerical = f"{string.ascii_lowercase + string.digits}".replace("a", " ")
 txtindex = [
     *alpha_numerical,
+    "a",
     ":",
     "/",
     ".",
 ]
+print(txtindex)
 txtindex_divided = [
     [" ", "b", "c", "d", "e", "f", "g"],
     ["h", "i", "j", "k", "l", "m", "n"],
