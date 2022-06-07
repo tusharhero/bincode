@@ -65,9 +65,7 @@ def bin2int(binnum):  # the bin must be inverted for this to work
 
     # loops until the number fully complete
     while n < len(binnum):
-        number += (
-            binnum[n] * binnumvalues[n]
-        )  # number = binnum(1) * 2^place ...
+        number += binnum[n] * binnumvalues[n]  # number = binnum(1) * 2^place ...
         n += 1
 
     return number
@@ -117,28 +115,27 @@ def rdbincodeimg(bincode):  # reads the bincode image
         ]  # uses the x and y locations we generated to decode the bincode
         # color = bincodedata[(100*(n+1)-50),locationx[n]]
         # print(n , color)
-        if (
-            color > 0
-        ):  # if the color is not 0 then it will append a 0 into the binnum
+        if color > 0:  # if the color is not 0 then it will append a 0 into the binnum
             binnum.append(0)
         if color == 0:  # if it is 0 then it will append a 1 into the bincode
             binnum.append(1)
     # number = bin2int(binnum) #We have to make design decision. So I have commented this for now.
     return binnum
 
+
 def correctbincode(bincode):
     """
     corects the image by resizing it and converting it to 1 bit format
     """
-    size = (800,800)
-    bincode = bincode.resize((800,800))
+    size = (800, 800)
+    bincode = bincode.resize(size, Image.ANTIALIAS)
     bincode = bincode.convert("1")
     return bincode
 
 
 def opbincode(
     dir,
-):  # a function for opening bincodes 
+):  # a function for opening bincodes
     bincode = Image.open(dir)
     bincode = correctbincode(bincode)
     return bincode
@@ -165,22 +162,55 @@ def bin_length_correction(binnum, l):
     return corrbin
 
 
-alpha_numerical = f"{string.ascii_lowercase + string.digits}".replace("a", " ")
 txtindex = [
-    *alpha_numerical,
+    " ",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
     "a",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "0",
     ":",
     "/",
     ".",
 ]
-# print(txtindex)
 txtindex_divided = [
     [" ", "b", "c", "d", "e", "f", "g"],
     ["h", "i", "j", "k", "l", "m", "n"],
     ["o", "p", "q", "r", "s", "t", "u"],
     ["v", "w", "x", "y", "z", "a", "1"],
     ["2", "3", "4", "5", "6", "7", "8"],
-    ["9", "0", ":", "/", "."          ],
+    ["9", "0", ":", "/", "."],
 ]
 
 
@@ -194,9 +224,9 @@ def txt2bin(txt):
     for item in txt:
         diccode = int(c2l(item, txtindex) / 7)
         codeindic = c2l(item, txtindex_divided[diccode])
-        binnum += bin_length_correction(
-            int2bin(diccode), 3
-        ) + bin_length_correction(int2bin(codeindic), 3)
+        binnum += bin_length_correction(int2bin(diccode), 3) + bin_length_correction(
+            int2bin(codeindic), 3
+        )
 
     return binnum
 
@@ -218,6 +248,7 @@ def bin2txt(binnum):
 
     txt = txt.strip()
     return txt
+
 
 def txt2bincode(txt):
     """
