@@ -15,27 +15,44 @@ img1 = Image.new("1", (50, 50))
 
 
 # Coordinates for every block
-locationy = (
-    [50 * 0] * 16
-    + [50 * 1] * 16
-    + [50 * 2] * 16
-    + [50 * 3] * 16
-    + [50 * 4] * 16
-    + [50 * 5] * 16
-    + [50 * 6] * 16
-    + [50 * 7] * 16
-    + [50 * 8] * 16
-    + [50 * 9] * 16
-    + [50 * 10] * 16
-    + [50 * 11] * 16
-    + [50 * 12] * 16
-    + [50 * 13] * 16
-    + [50 * 14] * 16
-    + [50 * 15] * 16
-)  # How did i get these numbers? every 16 bits will have the same coordinate. 🤔
-locationx = [
-    50 * i for i in range(16)
-] * 16  # And every 16th bit will have the same x coordinate.
+def gen_locationy(side_of_block, number_of_bits):
+    n = side_of_block
+    m = number_of_bits
+    locationy = (
+        [n * 0] * m
+        + [n * 1] * m
+        + [n * 2] * m
+        + [n * 3] * m
+        + [n * 4] * m
+        + [n * 5] * m
+        + [n * 6] * m
+        + [n * 7] * m
+        + [n * 8] * m
+        + [n * 9] * m
+        + [n * 10] * m
+        + [n * 11] * m
+        + [n * 12] * m
+        + [n * 13] * m
+        + [n * 14] * m
+        + [n * 15] * m
+    )  # How did i get these numbers? every 16 bits will have the same coordinate.
+    return locationy
+
+
+locationy = gen_locationy(50, 16)
+
+
+def gen_locationx(side_of_block, number_of_bits):
+    n = side_of_block
+    m = number_of_bits
+    locationx = [
+        n * i for i in range(m)
+    ] * m  # And every 16th bit will have the same x coordinate.
+    return locationx
+
+
+locationx = gen_locationx(50, 16)
+
 
 # We need a function to convert a given number into binary
 # I dont think this is a good idea, but i am going to try it anyway
