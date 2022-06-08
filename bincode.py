@@ -1,4 +1,4 @@
-# Generates bincodes which store binary numbers(for now just one number)
+# Generates bincodes which can store binary numbers and also text.
 
 import string
 
