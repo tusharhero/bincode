@@ -18,28 +18,17 @@ img1 = Image.new("1", (50, 50))
 def gen_locationy(side_of_block, number_of_bits):
     n = side_of_block
     m = number_of_bits
-    locationy = (
-        [n * 0] * m
-        + [n * 1] * m
-        + [n * 2] * m
-        + [n * 3] * m
-        + [n * 4] * m
-        + [n * 5] * m
-        + [n * 6] * m
-        + [n * 7] * m
-        + [n * 8] * m
-        + [n * 9] * m
-        + [n * 10] * m
-        + [n * 11] * m
-        + [n * 12] * m
-        + [n * 13] * m
-        + [n * 14] * m
-        + [n * 15] * m
-    )  # How did i get these numbers? every 16 bits will have the same coordinate.
+    locationy = []
+    for i in range(m):
+        locationy += [
+            n * i
+        ] * m  # How did i get these numbers? every 16 bits will have the same coordinate.
     return locationy
 
 
 locationy = gen_locationy(50, 16)
+
+# print(locationy)
 
 
 def gen_locationx(side_of_block, number_of_bits):
