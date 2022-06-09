@@ -14,6 +14,14 @@ img0 = Image.new("1", (800, 800), 1)
 img1 = Image.new("1", (50, 50))
 
 
+def calculate_num_bits(bincode_size, block_size):
+    return int(
+        (bincode_size / block_size) ** 2
+    )  # they are basically finding the number of blocks per side and then squaring them to find the number of blocks.
+
+
+n_bits = calculate_num_bits(800, 50)
+# print(n_bits)
 # Coordinates for every block
 def gen_locationy(side_of_block, number_of_bits):
     n = side_of_block
@@ -101,7 +109,7 @@ def mkbincodeimg(binnum):
 
     # binnum = int2bin(number) #converts the number into binary first
     bincode = img0.copy()  # makes a copy of the image
-
+    trimmed_binnum = binnum[0:n_bits]
     for index, item in enumerate(binnum):
         if item == 1:
             bincode.paste(img1, (locationx[index], locationy[index]))
