@@ -122,7 +122,7 @@ def rdbincodeimg(bincode):  # reads the bincode image
     bincodedata = bincode.load()  # loads the bincode
     binnum = []
     color = 0
-    for n in range(256):  # a bincode (for now) contains 256 bits
+    for n in range(n_bits):  # number of bits calculated using calculate_num_bits
         # color = bincodedata[(100*(n+1)-50),0]#100*(n+1)-50  #This gets the color values of each bit.
         color = bincodedata[
             locationx[n], locationy[n]
