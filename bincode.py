@@ -150,12 +150,9 @@ def rdbincodeimg(bincode):  # reads the bincode image
     binnum = []
     color = 0
     for n in range(n_bits):  # number of bits calculated using calculate_num_bits
-        # color = bincodedata[(100*(n+1)-50),0]#100*(n+1)-50  #This gets the color values of each bit.
-        color = bincodedata[
-            locationx[n], locationy[n]
-        ]  # uses the x and y locations we generated to decode the bincode
-        # color = bincodedata[(100*(n+1)-50),locationx[n]]
-        # print(n , color)
+        #This gets the color values of each bit.
+        color = get_block(bincodedata, locationx[n], locationy[n],50)
+        # color = bincodedata[locationx[n], locationy[n]]  # uses the x and y locations we generated to decode the bincode
         if color > 0:  # if the color is not 0 then it will append a 0 into the binnum
             binnum.append(0)
         if color == 0:  # if it is 0 then it will append a 1 into the bincode
