@@ -139,6 +139,11 @@ def find_major_color(image):
     return major_color
 
 
+def get_block(image,x,y,size):
+    crop_size = (x, y , x+size, y + size)
+    block = image.crop(crop_size)
+    return block
+
 def rdbincodeimg(bincode):  # reads the bincode image
     # bincode = Image.open(bincode)
     bincodedata = bincode.load()  # loads the bincode
