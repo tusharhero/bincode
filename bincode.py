@@ -117,6 +117,32 @@ def mkbincodeimg(binnum):
     return bincode
 
 
+def find_major_color(image):
+    width, height = image.size
+    image = image.load()
+    n_pixels = int(width * height)
+    # print(width,height)
+    # print(n_pixels)
+    x = gen_locationx(width, height)
+    y = gen_locationy(height, width)
+    # print(len(x),len(y))
+    white = []
+    black = []
+    for n in range(n_pixels):
+        color = image[x[n], y[n]]
+        if color == 0:
+            white.append(0)
+            print(len(white))
+        else:
+            black.append(1)
+            print(len(black))
+    if len(white) > len(black):
+        major_color = 0
+    else:
+        major_color = 1
+    return major_color
+
+
 def rdbincodeimg(bincode):  # reads the bincode image
     # bincode = Image.open(bincode)
     bincodedata = bincode.load()  # loads the bincode
