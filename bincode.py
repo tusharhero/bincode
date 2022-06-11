@@ -119,14 +119,15 @@ def mkbincodeimg(binnum):
 
 def find_major_color(image):
     height, width = image.size
+    image = image.load()
     x = gen_locationx(1, height)
     y = gen_locationy(1, width)
-    n_pixels = int(height*width)
+    n_pixels = int(height * width)
     white = []
     black = []
     major_color = 0
     for n in range(n_pixels):
-        color = image[x[n],y[n]]
+        color = image[x[n], y[n]]
         if color == 0:
             white.append(0)
         else:
