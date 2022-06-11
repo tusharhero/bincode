@@ -118,31 +118,33 @@ def mkbincodeimg(binnum):
 
 
 def find_major_color(image):
+    # finds the majority color
     height, width = image.size
     image = image.load()
     x = gen_locationx(1, height)
     y = gen_locationy(1, width)
     n_pixels = int(height * width)
-    white = []
-    black = []
+    white = 0
+    black = 0
     major_color = 0
     for n in range(n_pixels):
         color = image[x[n], y[n]]
         if color == 0:
-            white.append(0)
+            white += 1
         else:
-            black.append(1)
-    if len(white) > len(black):
+            black += 1
+    if white > black:  # determines which one is larger
         major_color = 0
     else:
         major_color = 1
     return major_color
 
 
-def get_block(image,x,y,size):
-    crop_size = (x, y , x+size, y + size)
+def get_block(image, x, y, size):
+    crop_size = (x, y, x + size, y + size)
     block = image.crop(crop_size)
     return block
+
 
 def rdbincodeimg(bincode):  # reads the bincode image
     # bincode = Image.open(bincode)
@@ -150,14 +152,13 @@ def rdbincodeimg(bincode):  # reads the bincode image
     binnum = []
     color = 0
     for n in range(n_bits):  # number of bits calculated using calculate_num_bits
-        #This gets the color values of each bit.
-        color = find_major_color(get_block(bincode, locationx[n], locationy[n],50))
+        # This gets the color values of each bit.
+        color = find_major_color(get_block(bincode, locationx[n], locationy[n], 50))
         # color = bincodedata[locationx[n], locationy[n]]  # uses the x and y locations we generated to decode the bincode
         if color > 0:  # if the color is not 0 then it will append a 0 into the binnum
             binnum.append(0)
         if color == 0:  # if it is 0 then it will append a 1 into the bincode
             binnum.append(1)
-    # number = bin2int(binnum) #We have to make design decision. So I have commented this for now.
     return binnum
 
 
