@@ -1,16 +1,22 @@
 
-<img src="https://raw.githubusercontent.com/tusharhero/bincode/main/bincode.png" alt="'bincode' in bincode" width="100"/>
-
 # bincode
 
 attempt to make bar codes.
 
-#
+## Why?
 
-### helloworld in bincode
-<img src="https://raw.githubusercontent.com/tusharhero/bincode/main/helloworld.png" alt="'bincode' in bincode" width="300"/>
+Why not.
 
-#
-### All bincodes from 0 to 1023
-![](https://github.com/tusharhero/bincode/raw/main/0to1023/0to1023.gif)
-these are old 1 dimensional bincodes.
+## What is this?
+
+This is a python library which can be used to create bincodes.
+
+![This reads 'bincode'](https://raw.githubusercontent.com/tusharhero/bincode/main/bincode.png)
+
+The above bincode reads "bincode".
+
+## Funcions:
+
+In this bit I am going to go through every function and explain what they do.
+
+###
