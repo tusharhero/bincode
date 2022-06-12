@@ -290,6 +290,14 @@ def bin2txt(binnum):
     return txt
 
 
+def binnum2bin(binnum):  # bincode's custom bin to normal bin
+    return bin(bin2int(binnum))
+
+
+def bin2binnum(nbin):  # normal bin to bincode's custom bin
+    return int2bin(int(nbin))
+
+
 def txt2bincode(txt):
     """
     Directly converts txt to bincodes for convenience.
