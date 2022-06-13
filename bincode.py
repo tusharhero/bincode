@@ -11,7 +11,7 @@ img0 = Image.new("1", (800, 800), 1)
 
 # This image is a small black box ⬛
 # and it is the block we are going to use denote 1
-img1 = Image.new("1", (10, 10))
+img1 = Image.new("1", (50, 50))
 
 
 def calculate_num_bits(bincode_size, block_size):
@@ -20,8 +20,7 @@ def calculate_num_bits(bincode_size, block_size):
     )  # they are basically finding the number of blocks per side and then squaring them to find the number of blocks.
 
 
-n_bits = calculate_num_bits(800, 10)
-
+n_bits = calculate_num_bits(800, 50)
 # print(n_bits)
 # Coordinates for every block
 def gen_locationy(side_of_block, number_of_bits):
@@ -35,7 +34,7 @@ def gen_locationy(side_of_block, number_of_bits):
     return locationy
 
 
-locationy = gen_locationy(10, 80)
+locationy = gen_locationy(50, 16)
 
 # print(locationy)
 
@@ -49,7 +48,7 @@ def gen_locationx(side_of_block, number_of_bits):
     return locationx
 
 
-locationx = gen_locationx(10, 80)
+locationx = gen_locationx(50, 16)
 
 
 # We need a function to convert a given number into binary
@@ -66,7 +65,7 @@ def createbinnumvals(bits):
     return binnumvalues
 
 
-binnumvalues = createbinnumvals(n_bits)
+binnumvalues = createbinnumvals(256)
 
 
 # First we need bin2int
@@ -154,7 +153,7 @@ def rdbincodeimg(bincode):  # reads the bincode image
     color = 0
     for n in range(n_bits):  # number of bits calculated using calculate_num_bits
         # This gets the color values of each bit.
-        color = find_major_color(get_block(bincode, locationx[n], locationy[n], 10))
+        color = find_major_color(get_block(bincode, locationx[n], locationy[n], 50))
         # color = bincodedata[locationx[n], locationy[n]]  # uses the x and y locations we generated to decode the bincode
         if color > 0:  # if the color is not 0 then it will append a 0 into the binnum
             binnum.append(0)
