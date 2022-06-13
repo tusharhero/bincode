@@ -147,7 +147,7 @@ def get_block(image, x, y, size):
 
 
 def rdbincodeimg(bincode):  # reads the bincode image
-    # bincode = Image.open(bincode)
+    bincode = correctbincode(bincode)
     # bincodedata = bincode.load()  # loads the bincode
     binnum = []
     color = 0
